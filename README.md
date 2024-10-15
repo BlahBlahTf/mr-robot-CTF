@@ -47,25 +47,16 @@ sudo nmap -sS -T4 10.38.1.110-120
 With the network set up, I started my attack by scanning the Mr. Robot VM. I used the following `nmap` command to perform a SYN scan:
 The scan revealed open ports: 22, 80, and 443, indicating that the VM is running a web server.
 
-<h3><strong>Step 6: Web Exploration</strong></h3> After identifying the open ports, I opened Firefox and navigated to the IP address revealed by `nmap`. The web server was running, confirming my initial scan results. <h3><strong>Step 7: Enumerating the Web Server</strong></h3> I began exploring the web server. Upon examining the site, I noticed clues that pointed toward hidden directories and vulnerabilities.
-Using tools like dirb and gobuster, I enumerated directories on the web server to uncover potential access points for exploitation.
-
-bash
-Copy code
-gobuster dir -u http://10.38.1.110 -w /usr/share/wordlists/dirb/common.txt
-
-<h3><strong>Step 8: Exploiting Vulnerabilities</strong></h3> During enumeration, I found a vulnerable page and used Burp Suite to intercept the requests and craft an exploit. By exploiting these vulnerabilities, I gained access to the web server and started hunting for the flags hidden within the file system. <h3><strong>Step 9: Capture the Flags</strong></h3> The objective of Mr. Robot's CTF is to capture three flags. I used a combination of nmap, directory enumeration, web server exploration, and privilege escalation to locate and capture all three flags.
-Each flag was hidden deeper within the system, requiring various exploitation techniques to uncover.
+![NMap](./Public/openPorts.png)
 
 
-vbnet
-Copy code
+<h3><strong>Step 6: Web Exploration</strong></h3> After identifying the open ports, I opened Firefox and navigated to the IP address revealed by `nmap`. The web server was running, confirming my initial scan results. 
+
+![CTF](./Public/ctf.png)
+
+ONGOING
 
 ---
 
 ### Key points:
 - Step 6 details the web exploration process.
-- Step 7 describes the enumeration of directories using tools like `gobuster`.
-- Step 8 outlines the exploitation of vulnerabilities on the web server.
-- Step 9 concludes the CTF challenge with the capture of all three flags, completing the task.
-
